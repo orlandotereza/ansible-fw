@@ -3,8 +3,8 @@
 
   vars:
     vault_url: https://vault.leroymerlin.com.br
-    vault_role_id: "{{ lookup('env','vault_role_id') }}"
-    vault_secret_id: "{{ lookup('env','vault_secret_id') }}"
+    vault_role_id: "{{ vault_role_id }}"
+    vault_secret_id: "{{ vault_secret_id }}"
     vault_secrets: "{{ lookup('hashi_vault', 'secret=infra/data/network/{{ env }}/firewall auth_method=approle role_id={{ vault_role_id }} secret_id={{ vault_secret_id }} url={{ vault_url }}')}}"  
   
   tasks:
