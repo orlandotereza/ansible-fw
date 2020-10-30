@@ -20,7 +20,7 @@
 
   - name: Put Firewall Online
     uri:
-      url: http://172.26.20.245:8082/6.6/elements/single_fw/683/firewall_node/684/go_online
+      url: "http://{{ vault_secrets.data.smc_url }}:8082/6.6/elements/single_fw/683/firewall_node/684/go_online"
       method: PUT
       headers:
        Cookie: "{{ cookies_string.set_cookie }}"
