@@ -1,12 +1,19 @@
 ---
 - hosts: localhost
+
+  vars:
+    vault_url: https://vault.leroymerlin.com.br
+    vault_role_id: "{{ lookup('env','vault_role_id') }}"
+    vault_secret_id: "{{ lookup('env','vault_secret_id') }}"
+    vault_secrets: "{{ lookup('hashi_vault', 'secret=infra/data/network/{{ env }}/firewall auth_method=approle role_id={{ vault_role_id }} secret_id={{ vault_secret_id }} url={{ vault_url }}')}}"  
+  
   tasks:
   - name: Login in SMC API using KEY
     uri:
-      url: http://172.26.20.245:8082/6.6/login
+      url: 'http://{{ smc_url }}:8082/6.6/login'
       method: POST
       body_format: json
-      body: {"authenticationkey":"USGTRqjDud8sbfzgJv3VyhsK"}
+      body: '{"authenticationkey":"{{ smc_api_token }}"}'
       return_content: yes
       status_code: 200
     register: cookies_string
