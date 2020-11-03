@@ -32,6 +32,7 @@
       headers:
        Cookie: "{{ cookies_string.set_cookie }}"
       status_code: 201
+      return_content: yes
       body_format: json
     register: location
   
