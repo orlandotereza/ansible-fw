@@ -19,7 +19,7 @@
       status_code: 200
     register: cookies_string
     
-  - name: Creating vpn profile json file
+  - name: Creating VPN Profile json file
     template:
       src: src/vpn-profile.j2
       dest: src/vpn-profile.json
@@ -34,9 +34,9 @@
       status_code: 201
       return_content: yes
       body_format: json
-    register: location
+    register: url
   
-  - name: Creating vpn profile json file
+  - name: Creating VPN json file
     template:
       src: src/vpn.j2
       dest: src/vpn.json
