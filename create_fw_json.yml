@@ -27,7 +27,7 @@
        Content-Type: application/json
       status_code: 201
       body:
-        log_server_ref: "http://172.26.20.245:8082/6.6/elements/log_server/11"
+        log_server_ref: "http://{{ vault_secrets.data.smc_url }}:8082/6.6/elements/log_server/11"
         name: FW
         nodes: 
          - 
