@@ -1,10 +1,10 @@
 {
     "log_server_ref": "http://{{ vault_secrets.data.smc_url }}:8082/6.6/elements/log_server/11",
-    "name": "FW",
+    "name": "{{ fw_name }}",
     "nodes": [
         {
             "firewall_node": {
-                "name": "node1"
+                "name": "node4"
             }
         }
     ],
