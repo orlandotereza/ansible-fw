@@ -24,7 +24,6 @@
       method: POST
       headers:
        Cookie: "{{ cookies_string.set_cookie }}"
-       Content-Type: application/json
       status_code: 201
       body:
         log_server_ref: "http://{{ vault_secrets.data.smc_url }}:8082/6.6/elements/log_server/11"
