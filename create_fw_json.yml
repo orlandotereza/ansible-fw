@@ -24,6 +24,7 @@
       method: POST
       headers:
        Cookie: "{{ cookies_string.set_cookie }}"
+       Content-Type: application/json
       status_code: 201
       body:
        log_server_ref: http://172.26.20.245:8082/6.6/elements/log_server/11
