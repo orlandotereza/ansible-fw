@@ -27,18 +27,18 @@
        Content-Type: application/json
       status_code: 201
       body:
-       log_server_ref: http://172.26.20.245:8082/6.6/elements/log_server/11
-       name: FW
-       nodes:
-       - firewall_node:
-         name: node1
-       physicalInterfaces:
-       - physical_interface:
-         interface_id: 0
-         interfaces:
-          - single_node_interface:
-            address: 10.0.0.100
-            nicid: '0'
-            network_value: 10.0.0.0/24
-            primary_mgt: true
+        log_server_ref: http://172.26.20.245:8082/6.6/elements/log_server/11
+        name: FW
+        nodes:
+        - firewall_node:
+          name: node1
+        physicalInterfaces:
+        - physical_interface:
+          interface_id: 0
+          interfaces:
+           - single_node_interface:
+             address: 10.0.0.100
+             nicid: '0'
+             network_value: 10.0.0.0/24
+             primary_mgt: true
       body_format: json
