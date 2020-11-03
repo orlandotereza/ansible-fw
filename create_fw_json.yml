@@ -31,14 +31,14 @@
        name: FW
        nodes:
        - firewall_node:
-           name: node1
+        name: node1
        physicalInterfaces:
        - physical_interface:
-           interface_id: 0
-           interfaces:
-           - single_node_interface:
-               address: 10.0.0.100
-               nicid: '0'
-               network_value: 10.0.0.0/24
-               primary_mgt: true
+        interface_id: 0
+        interfaces:
+        - single_node_interface:
+          address: 10.0.0.100
+          nicid: '0'
+          network_value: 10.0.0.0/24
+          primary_mgt: true
       body_format: json
