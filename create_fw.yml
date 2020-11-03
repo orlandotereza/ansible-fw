@@ -20,7 +20,7 @@
 
   - name: Create FW
     uri:
-      url: "http://{{ vault_secrets.data.smc_url }}:8082/6.6/elements/single_fw/"
+      url: "http://{{ vault_secrets.data.smc_url }}:8082/6.6/elements/single_fw"
       method: POST
       body: "{{ lookup('file','create_fw.json') }}"
       status_code: 201
