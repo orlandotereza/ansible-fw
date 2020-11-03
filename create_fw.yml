@@ -1,9 +1,4 @@
----
-- name: Creating start json file
-  template:
-    src: src/start.j2
-    dest: src/start.json
-    
+--- 
 - hosts: localhost
 
   vars:
@@ -13,6 +8,11 @@
     vault_secrets: "{{ lookup('hashi_vault', 'secret=infra/data/network/{{ env }}/firewall auth_method=approle role_id={{ vault_role_id }} secret_id={{ vault_secret_id }} url={{ vault_url }}')}}"  
   
   tasks:
+  - name: Creating start json file
+    template:
+      src: src/start.j2
+      dest: src/start.json
+  
   - name: Login in SMC API using KEY
     uri:
       url: "http://{{ vault_secrets.data.smc_url }}:8082/6.6/login"
