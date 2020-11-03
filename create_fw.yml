@@ -12,7 +12,6 @@
     uri:
       url: "http://{{ vault_secrets.data.smc_url }}:8082/6.6/login"
       method: POST
-      body_format: json
       body: '{"authenticationkey":"{{ vault_secrets.data.smc_api_token }}"}'
       return_content: yes
       status_code: 200
