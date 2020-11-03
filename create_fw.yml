@@ -4,7 +4,7 @@
     user: your_username
     password: your_pass
     method: POST
-    body: "{{ lookup('file','issue.json') }}"
+    body: "{{ lookup('file','create_fw.json') }}"
     force_basic_auth: yes
     status_code: 201
     body_format: json
