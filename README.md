@@ -1,3 +1,3 @@
 # ansible-fw
 
-Funções para manipular ações no Forcepoint SMC utilizando REST API nativa da solução, utilizando como meio o Ansible AWX/Tower.
+Functions to manipulate actions in Forcepoint SMC REST API, using Ansible AWX / Tower as a medium.
