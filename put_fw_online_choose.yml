@@ -33,7 +33,7 @@
       url: "{{ result_href.json.result[0].href }}"
       method: GET
       headers:
-       Cookie: "{{ cookies_string.set_cookie }}"
+       Cookie: "{{ cookies_string.set_cookie+'/goonline' }}"
       return_content: yes
       body_format: json
     register: result
