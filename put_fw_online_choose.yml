@@ -25,4 +25,4 @@
       headers:
        Cookie: "{{ cookies_string.set_cookie }}"
       return_content: yes
-    register: online
+    register: result.href
