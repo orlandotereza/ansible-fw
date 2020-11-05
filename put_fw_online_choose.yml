@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+
+  vars:
+    vault_url: https://vault.leroymerlin.com.br
+    vault_role_id: "{{ vault_role_id }}"
+    vault_secret_id: "{{ vault_secret_id }}"
+    vault_secrets: "{{ lookup('hashi_vault', 'secret=infra/data/network/{{ env }}/firewall auth_method=approle role_id={{ vault_role_id }} secret_id={{ vault_secret_id }} url={{ vault_url }}')}}"  
+  
+  tasks:
+  - name: Login in SMC API using KEY
+    uri:
+      url: "http://{{ vault_secrets.data.smc_url }}:8082/6.6/login"
+      method: POST
+      body_format: json
+      body: '{"authenticationkey":"{{ vault_secrets.data.smc_api_token }}"}'
+      return_content: yes
+      status_code: 200
+    register: cookies_string
+
+  - name: Get Firewall
+    uri:
+      url: "http://{{ vault_secrets.data.smc_url }}:8082/6.6/elements?filter={{ search_element }}"
+      method: GET
+      headers:
+       Cookie: "{{ cookies_string.set_cookie }}"
+      return_content: yes
+    register: online
