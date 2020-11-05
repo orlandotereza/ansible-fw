@@ -28,9 +28,19 @@
       body_format: json
     register: result_href
 
-  - name: Put Firewall Online
+  - name: Get Others Firewalls Informations
     uri:
       url: "{{ result_href.json.result[0].href }}"
+      method: GET
+      headers:
+       Cookie: "{{ cookies_string.set_cookie+'/goonline' }}"
+      return_content: yes
+      body_format: json
+    register: result_href_fw
+
+ - name: Put Firewall Online
+    uri:
+      url: "{{ result_href_fw.json.result[0].href+'/'+result_href_fw.json.nodes.firewall_node.key[0]+'go_online' }}"
       method: POST
       headers:
        Cookie: "{{ cookies_string.set_cookie+'/goonline' }}"
