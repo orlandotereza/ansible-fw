@@ -40,7 +40,7 @@
 
   - name: Put Firewall Online
     uri:
-      url: "{{ result_href.json.result[0].href+'/firewall_node/'+\result_href_fw.json.nodes[0].firewall_node.key+'/go_online' }}"
+      url: "{{ result_href.json.result[0].href+'/firewall_node/'+result_href_fw.json.nodes[0].firewall_node.key+'/go_online' }}"
       method: PUT
       headers:
        Cookie: "{{ cookies_string.set_cookie }}"
