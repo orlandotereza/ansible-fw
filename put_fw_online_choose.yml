@@ -39,7 +39,7 @@
     register: result_href_fw
     
   vars:
-    key_object: "{{ result_href_fw.json.nodes[0].firewall_node.key }} 
+    key_object: "{{ result_href_fw.json.nodes[0].firewall_node.key }}"
   
   - name: Put Firewall Online
     uri:
