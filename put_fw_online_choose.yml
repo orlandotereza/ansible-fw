@@ -41,6 +41,7 @@
   vars:
     key_object: "{{ result_href_fw.json.nodes[0].firewall_node.key }}"
   
+  tasks:
   - name: Put Firewall Online
     uri:
       url: "{{ result_href.json.result[0].href+'/firewall_node/'+key_object+'/go_online' }}"
